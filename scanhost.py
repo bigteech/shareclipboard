@@ -1,8 +1,6 @@
 import netifaces
 import json
-import socket
 import asyncio
-asyncio.TimerHandle
 
 port = 10258
 
@@ -79,30 +77,18 @@ class HostManager():
             try:
                 coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                           ip, port)
-
-                loop.run_until_complete(coro)
-            except:
-                pass
-        loop.close()
+                loop.create_task(coro)
+            except Exception as e:
+                print(e)
+        loop.run_until_complete()
         asyncio.sleep(100)
         self.heartbeat()
 
     def listen(self):
         loop = asyncio.new_event_loop()
-        # Each client connection will create a new protocol instance
         coro = loop.create_server(self.echoServerClientProtocol, '0.0.0.0', port)
         server = loop.run_until_complete(coro)
+        loop.run_forever()
 
-        # Serve requests until Ctrl+C is pressed
-        print('Serving on {}'.format(server.sockets[0].getsockname()))
-        try:
-            loop.run_forever()
-        except KeyboardInterrupt:
-            pass
-
-        # Close the server
-        server.close()
-        loop.run_until_complete(server.wait_closed())
-        loop.close()
 
 manager = HostManager()

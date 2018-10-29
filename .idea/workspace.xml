@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55c8f85a-519a-43d3-9360-941e84af4029" name="Default Changelist" comment="" />
+    <list default="true" id="55c8f85a-519a-43d3-9360-941e84af4029" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scanhost.py" beforeDir="false" afterPath="$PROJECT_DIR$/scanhost.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/cpb$main.coverage" NAME="main Coverage Results" MODIFIED="1540467242735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cpb$main.coverage" NAME="main Coverage Results" MODIFIED="1540797773675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1858891030">
@@ -24,35 +28,35 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="19" />
+          <entry key="py" value="25" />
           <entry key="pyi" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="19" />
+          <entry key="Python" value="25" />
           <entry key="PythonStub" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2126" />
+          <entry key="py" value="2199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2126" />
+          <entry key="Python" value="2199" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="750">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="662">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <marker date="1540793310733" expanded="true" signature="379:522" ph="..." />
@@ -62,16 +66,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/桌面/cpb/scanhost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.7/asyncio/events.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="218" column="8" selection-start-line="218" selection-start-column="8" selection-end-line="218" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scanhost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="617">
+              <caret line="82" column="33" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
-                <marker date="1540793294287" expanded="true" signature="1070:1709" ph="..." />
-                <marker date="1540793294287" expanded="true" signature="1378:1430" ph="..." />
-                <marker date="1540793294287" expanded="true" signature="1473:1523" ph="..." />
-                <marker date="1540793294287" expanded="true" signature="1548:1577" ph="..." />
+                <marker date="1540797770995" expanded="true" signature="1036:1675" ph="..." />
+                <marker date="1540797770995" expanded="true" signature="1344:1396" ph="..." />
+                <marker date="1540797770995" expanded="true" signature="1439:1489" ph="..." />
+                <marker date="1540797770995" expanded="true" signature="1514:1543" ph="..." />
               </folding>
             </state>
           </provider>
@@ -80,7 +102,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///usr/lib/python3.7/asyncio/protocols.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7155">
+            <state relative-caret-position="324">
               <caret line="159" column="6" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
             </state>
           </provider>
@@ -89,17 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///usr/lib/python3.7/asyncio/selector_events.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21150">
-              <caret line="476" column="21" selection-start-line="476" selection-start-column="8" selection-end-line="476" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python3.7/asyncio/base_events.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41355">
-              <caret line="933" column="30" selection-start-line="933" selection-start-column="20" selection-end-line="933" selection-end-column="30" />
+            <state relative-caret-position="437">
+              <caret line="463" column="11" lean-forward="true" selection-start-line="463" selection-start-column="11" selection-end-line="463" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -124,13 +137,17 @@
       <find>timeout</find>
       <find>TimerHandle</find>
       <find>_timer_handle_cancelled</find>
+      <find>future</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scanhost.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/scanhost.py" />
       </list>
     </option>
   </component>
@@ -146,6 +163,7 @@
     <option name="width" value="1748" />
     <option name="height" value="1116" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
@@ -186,21 +204,6 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
               <item name="-1247971762" type="70582d5e:PySkeletonsNode" />
-            </path>
-            <path>
-              <item name="cpb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-1247971762" type="70582d5e:PySkeletonsNode" />
-              <item name="PyQt5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-1247971762" type="70582d5e:PySkeletonsNode" />
-              <item name="PyQt5" type="462c0819:PsiDirectoryNode" />
-              <item name="QtWidgets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -267,14 +270,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="3840" height="2092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2668282" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2668282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31161472" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27422097" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31161472" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.28938356" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -282,7 +286,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30934843" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.31164384" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -320,6 +324,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scanhost.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/lib/python3.7/typing.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -347,34 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/桌面/cpb/scanhost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3240">
-          <caret line="75" column="37" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.7/asyncio/protocols.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7155">
-          <caret line="159" column="6" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.7/asyncio/selector_events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21150">
-          <caret line="476" column="21" selection-start-line="476" selection-start-column="8" selection-end-line="476" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.7/asyncio/base_events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41355">
-          <caret line="933" column="30" selection-start-line="933" selection-start-column="20" selection-end-line="933" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1247971762/PyQt5/QtWidgets/QMainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -382,34 +369,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.7/asyncio/events.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1247971762/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2398">
-          <caret line="155" column="46" selection-start-line="155" selection-start-column="23" selection-end-line="155" selection-end-column="46" />
+        <state relative-caret-position="-2187">
+          <caret line="837" column="6" selection-start-line="837" selection-start-column="6" selection-end-line="837" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scanhost.py">
+    <entry file="file://$USER_HOME$/桌面/cpb/scanhost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <marker date="1540793294287" expanded="true" signature="1070:1709" ph="..." />
-            <marker date="1540793294287" expanded="true" signature="1378:1430" ph="..." />
-            <marker date="1540793294287" expanded="true" signature="1473:1523" ph="..." />
-            <marker date="1540793294287" expanded="true" signature="1548:1577" ph="..." />
-          </folding>
+        <state relative-caret-position="423">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="662">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <marker date="1540793310733" expanded="true" signature="379:522" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.7/asyncio/protocols.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="159" column="6" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.7/asyncio/events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="218" column="8" selection-start-line="218" selection-start-column="8" selection-end-line="218" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.7/asyncio/base_events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="378" column="19" selection-start-line="378" selection-start-column="8" selection-end-line="378" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.7/asyncio/selector_events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="463" column="11" lean-forward="true" selection-start-line="463" selection-start-column="11" selection-end-line="463" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scanhost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="82" column="33" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+            <marker date="1540797770995" expanded="true" signature="1036:1675" ph="..." />
+            <marker date="1540797770995" expanded="true" signature="1344:1396" ph="..." />
+            <marker date="1540797770995" expanded="true" signature="1439:1489" ph="..." />
+            <marker date="1540797770995" expanded="true" signature="1514:1543" ph="..." />
           </folding>
         </state>
       </provider>
