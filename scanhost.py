@@ -74,14 +74,11 @@ class HostManager():
         loop = asyncio.new_event_loop()
         message = '{"type": "reg", "name": {self.name}}'
         for ip in ip_lists:
-            try:
-                coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
-                                          ip, port)
-                loop.create_task(coro)
-            except Exception as e:
-                print(e)
+            coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
+                                      ip, port)
+            loop.create_task(coro)
         loop.run_until_complete()
-        asyncio.sleep(100)
+        asyncio.sleep(15)
         self.heartbeat()
 
     def listen(self):
