@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         for filename in range(20):
             self.MapButton = QtWidgets.QPushButton(self.topFiller)
             self.MapButton.setText(str(filename))
-
+            self.MapButton.move(10, filename * 40)
 
         self.scrollArea.setWidget(self.topFiller)
         MainWindow.setCentralWidget(self.centralwidget)
