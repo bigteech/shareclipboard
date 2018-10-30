@@ -15,17 +15,18 @@ MainWindow.show()
 
 QPushButton(ui.topFiller).setText("fre")
 
-def on_reg(data):
-    btn = QPushButton(ui.topFiller)
-    btn.setText(data)
-    btn.show()
-    return 'hhahah'
+label_count = 0
 
+def on_reg(data):
+    return 'success'
 
 def on_text(data):
+    global label_count
     btn = QPushButton(ui.topFiller)
     btn.setText(data)
+    btn.move(0, label_count * 40)
     btn.show()
+    label_count += 1
     return f'一段文本{data}'
 
 

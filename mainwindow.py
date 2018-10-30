@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.topFiller = QtWidgets.QWidget()
-        self.topFiller.setMinimumSize(250, 2000)  #######设置滚动条的尺寸
+        self.topFiller.setMinimumSize(250, 2000)
         self.scrollArea.setWidget(self.topFiller)
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)
