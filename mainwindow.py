@@ -11,12 +11,25 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(510, 630)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.historyboard = QtWidgets.QListView(self.centralwidget)
-        self.historyboard.setGeometry(QtCore.QRect(0, 0, 801, 481))
-        self.historyboard.setObjectName("historyboard")
+        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
+        self.textEdit.setGeometry(QtCore.QRect(10, 550, 491, 71))
+        self.textEdit.setObjectName("textEdit")
+        self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
+        self.scrollArea.setGeometry(QtCore.QRect(10, 10, 491, 531))
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+
+        self.topFiller = QtWidgets.QWidget()
+        self.topFiller.setMinimumSize(250, 2000)  #######设置滚动条的尺寸
+        for filename in range(20):
+            self.MapButton = QtWidgets.QPushButton(self.topFiller)
+            self.MapButton.setText(str(filename))
+
+
+        self.scrollArea.setWidget(self.topFiller)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -25,4 +38,3 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-
