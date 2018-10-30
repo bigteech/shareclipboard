@@ -22,17 +22,18 @@ def get_text_from_editor():
 def get_button(data):
     btn = QPushButton(ui.topFiller)
     btn.setText(data)
+    btn.setMaximumWidth(300)
     btn.clicked.connect(lambda x: pyperclip.copy(data))
     return btn
 
 def on_reg(data):
     return 'success'
 
-def init_btn_history(data):
+def init_btn_history(data, x=0):
     global label_height
     btn = get_button(data)
     btn.setText(data)
-    btn.move(0, label_height)
+    btn.move(x, label_height)
     btn.show()
     label_height += btn.height()
     return f'success'
@@ -49,7 +50,7 @@ def listen():
 def send_msg():
     data = get_text_from_editor()
     ui.textEdit.clear()
-    init_btn_history(data)
+    init_btn_history(data, 380)
 
 ui.submit.clicked.connect(send_msg)
 listen()
