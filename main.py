@@ -14,7 +14,7 @@ ui = mainwindow.Ui_MainWindow()
 ui.setupUi(MainWindow)
 MainWindow.show()
 
-label_count = 0
+label_height = 0
 
 def get_text_from_editor():
     return ui.textEdit.toPlainText()
@@ -28,14 +28,17 @@ def get_button(data):
 def on_reg(data):
     return 'success'
 
-def on_text(data):
-    global label_count
+def init_btn_history(data):
+    global label_height
     btn = get_button(data)
     btn.setText(data)
-    btn.move(0, label_count * 40)
+    btn.move(0, label_height)
     btn.show()
-    label_count += 1
+    label_height += btn.height()
     return f'success'
+
+def on_text(data):
+    init_btn_history(data)
 
 
 def listen():
@@ -46,11 +49,7 @@ def listen():
 def send_msg():
     data = get_text_from_editor()
     ui.textEdit.clear()
-    global label_count
-    btn = get_button(data)
-    btn.move(384, label_count * 40)
-    btn.show()
-    label_count += 1
+    init_btn_history(data)
 
 ui.submit.clicked.connect(send_msg)
 listen()
