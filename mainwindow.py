@@ -21,17 +21,10 @@ class Ui_MainWindow(object):
         self.scrollArea.setGeometry(QtCore.QRect(10, 10, 491, 531))
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
-
         self.topFiller = QtWidgets.QWidget()
         self.topFiller.setMinimumSize(250, 2000)  #######设置滚动条的尺寸
-        for filename in range(20):
-            self.MapButton = QtWidgets.QPushButton(self.topFiller)
-            self.MapButton.setText(str(filename))
-
-
         self.scrollArea.setWidget(self.topFiller)
         MainWindow.setCentralWidget(self.centralwidget)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
