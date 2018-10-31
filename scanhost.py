@@ -77,7 +77,7 @@ class HostManager():
 
         loop = asyncio.get_event_loop()
         message = '{"type": "reg", "data": "%s"}' % self.name
-        for k, v in self.reged_hosts:
+        for k, v in self.reged_hosts.items():
             if (datetime.datetime.now() - v[1]).seconds > 60:
                 self.reged_hosts.pop(k, None)
 
