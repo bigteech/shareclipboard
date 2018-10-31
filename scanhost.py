@@ -82,23 +82,20 @@ class HostManager():
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)
             loop.create_task(coro)
-        loop.run_until_complete()
         asyncio.sleep(15)
         self.heartbeat()
 
     def send_msg(self, data):
         loop = asyncio.get_event_loop()
-        message = '{"type": "text", "data": {"msg": {0}}}'.format(data)
+        message = '{"type": "text", "data": {"msg": {%s}}}' % data
         for ip in self.reged_hosts:
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)
             loop.create_task(coro)
-        loop.run_until_complete()
 
     def listen(self):
         loop = asyncio.get_event_loop()
         coro = loop.create_server(self.echoServerClientProtocol, '0.0.0.0', port)
         loop.create_task(coro)
-
 
 manager = HostManager()
