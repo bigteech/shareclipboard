@@ -2,8 +2,11 @@ import netifaces
 import json
 import asyncio
 import datetime
-
+import socket
 port = 10258
+
+myaddr = socket.gethostbyname(socket.getfqdn(socket.gethostname()))
+
 
 def get_gateways():
     return netifaces.gateways()['default'][netifaces.AF_INET][0]
@@ -78,7 +81,10 @@ class HostManager():
             if (datetime.datetime.now() - v[1]).seconds > 60:
                 self.reged_hosts.pop(k, None)
 
+
         for ip in ip_lists:
+            if ip == myaddr:
+                continue
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)
             loop.create_task(coro)
