@@ -68,7 +68,7 @@ class HostManager():
     def reg(self, name, host):
         self.reged_hosts['host'] = (name, datetime.datetime.now(),)
 
-    def heartbeat(self):
+    def heartbeat(self, fun_to_flush):
         gateway = get_gateways()
         ip_lists = get_ip_lists(gateway)
 
@@ -83,6 +83,7 @@ class HostManager():
                                       ip, port)
             loop.create_task(coro)
         asyncio.sleep(15)
+        fun_to_flush()
         self.heartbeat()
 
     def send_msg(self, data):
