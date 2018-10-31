@@ -76,7 +76,7 @@ class HostManager():
         ip_lists = get_ip_lists(gateway)
 
         loop = asyncio.get_event_loop()
-        message = '{"type": "reg", "data": {"name": {%s}}}' % self.name
+        message = '{"type": "reg", "data": "%s"}' % self.name
         for k, v in self.reged_hosts:
             if (datetime.datetime.now() - v[1]).seconds > 60:
                 self.reged_hosts.pop(k, None)
@@ -95,7 +95,7 @@ class HostManager():
 
     def send_msg(self, data):
         loop = asyncio.get_event_loop()
-        message = '{"type": "text", "data": {"msg": {%s}}}' % data
+        message = '{"type": "text", "data": "%s"}' % data
         for ip in self.reged_hosts:
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)

@@ -37,12 +37,12 @@ def get_button(data):
     return btn
 
 def on_reg(data, proto):
-    manager.reg(data['name'])
+    manager.reg(data)
     flush_user()
     return 'success'
 
 def on_text(data, proto):
-    init_btn_history(data['msg'])
+    init_btn_history(data)
 
 def init_btn_history(data):
     global label_height
