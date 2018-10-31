@@ -19,7 +19,7 @@ label_height = 0
 def flush_user():
     [x.setParent(None) for x in ui.users.children()]
     i = 0
-    for y, z in manager.get_hosts():
+    for z, y in manager.get_hosts().items():
         label = QLabel(ui.users)
         label.setText(y[0])
         label.move(0, i * 10)
@@ -37,7 +37,7 @@ def get_button(data):
     return btn
 
 def on_reg(data, proto):
-    manager.reg(data)
+    manager.reg(data, proto.transport._extra.get('peername')[0])
     flush_user()
     return 'success'
 
