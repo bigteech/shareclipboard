@@ -69,7 +69,6 @@ def send_msg():
 
 ui.submit.clicked.connect(send_msg)
 listen()
-
-manager.heartbeat(flush_user)
+loop.create_task(manager.heartbeat(flush_user))
 sys.exit(loop.run_forever())
 

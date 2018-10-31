@@ -68,12 +68,12 @@ class HostManager():
     def reg(self, name, host):
         self.reged_hosts['host'] = (name, datetime.datetime.now(),)
 
-    def heartbeat(self, fun_to_flush):
+    async def heartbeat(self, fun_to_flush):
         gateway = get_gateways()
         ip_lists = get_ip_lists(gateway)
 
         loop = asyncio.get_event_loop()
-        message = '{"type": "reg", "data": {"name": {0}}}'.format(self.name)
+        message = '{"type": "reg", "data": {"name": {%s}}}' % self.name
         for k, v in self.reged_hosts:
             if (datetime.datetime.now() - v[1]).seconds > 60:
                 self.reged_hosts.pop(k, None)
@@ -82,9 +82,10 @@ class HostManager():
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)
             loop.create_task(coro)
-        asyncio.sleep(15)
+            print(f'reg   {ip}:{port}')
         fun_to_flush()
-        self.heartbeat()
+        await asyncio.sleep(15)
+        await self.heartbeat(fun_to_flush)
 
     def send_msg(self, data):
         loop = asyncio.get_event_loop()
