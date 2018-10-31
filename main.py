@@ -36,12 +36,12 @@ def get_button(data):
     btn.clicked.connect(lambda x: pyperclip.copy(data))
     return btn
 
-def on_reg(data, proto):
-    manager.reg(data, proto.transport._extra.get('peername')[0])
+def on_reg(data, addr):
+    manager.reg(data, addr)
     flush_user()
     return 'success'
 
-def on_text(data, proto):
+def on_text(data, addr):
     init_btn_history(data)
     return 'success'
 

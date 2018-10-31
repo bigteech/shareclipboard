@@ -25,24 +25,54 @@ def get_proto(manager):
         def connection_made(self, transport):
             self.transport = transport
 
-        def data_received(self, data):
+        def datagram_received(self, data, addr):
             try:
                 msg = json.loads(data.decode())
             except:
-                self.transport.close()
                 return
             msg_type = msg.get('type')
             if not type:
-                self.transport.close()
                 return
             handler = manager.get_msg_handler(msg_type)
             if handler:
-                self.transport.write(bytes(handler(msg.get('data'), self), 'utf-8'))
-            self.transport.close()
+                self.transport.sendto(data, addr)
 
     return EchoServerClientProtocol
 
+class EchoServerProtocol:
+    def connection_made(self, transport):
+        self.transport = transport
 
+    def datagram_received(self, data, addr):
+        message = data.decode()
+        print('Received %r from %s' % (message, addr))
+        print('Send %r to %s' % (message, addr))
+        self.transport.sendto(data, addr)
+
+class EchoClientProtocol:
+    def __init__(self, message, loop):
+        self.message = message
+        self.loop = loop
+        self.transport = None
+
+    def connection_made(self, transport):
+        self.transport = transport
+        print('Send:', self.message)
+        self.transport.sendto(self.message.encode())
+
+    def datagram_received(self, data, addr):
+        print("Received:", data.decode())
+
+        print("Close the socket")
+        self.transport.close()
+
+    def error_received(self, exc):
+        print('Error received:', exc)
+
+    def connection_lost(self, exc):
+        print("Socket closed, stop the event loop")
+        loop = asyncio.get_event_loop()
+        loop.stop()
 
 class HostManager():
     reged_hosts = {}
@@ -85,8 +115,8 @@ class HostManager():
         for ip in ip_lists:
             if ip == myaddr:
                 continue
-            coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
-                                      ip, port)
+            coro = loop.create_datagram_endpoint(lambda: EchoClientProtocol(message, loop),
+                                                 remote_addr=(ip, port))
             loop.create_task(coro)
         fun_to_flush()
         await asyncio.sleep(15)
@@ -102,7 +132,7 @@ class HostManager():
 
     def listen(self):
         loop = asyncio.get_event_loop()
-        coro = loop.create_server(self.echoServerClientProtocol, '0.0.0.0', port)
+        coro = loop.create_datagram_endpoint(self.echoServerClientProtocol, local_addr=('0.0.0.0', port))
         loop.create_task(coro)
 
 manager = HostManager()
