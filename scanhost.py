@@ -1,6 +1,7 @@
 import netifaces
 import json
 import asyncio
+import datetime
 
 port = 10258
 
@@ -33,7 +34,7 @@ def get_proto(manager):
                 return
             handler = manager.get_msg_handler(msg_type)
             if handler:
-                self.transport.write(bytes(handler(msg.get('data')), 'utf-8'))
+                self.transport.write(bytes(handler(msg.get('data'), self), 'utf-8'))
             self.transport.close()
 
     return EchoServerClientProtocol
@@ -59,20 +60,24 @@ class HostManager():
         self.host_change_handler = handler;
 
     def set_name(self, name):
-        self.name = ''
+        self.name = name
 
     def get_hosts(self):
         return self.reged_hosts
 
     def reg(self, name, host):
-        self.reged_hosts.append((name, host,))
+        self.reged_hosts['host'] = (name, datetime.datetime.now(),)
 
     def heartbeat(self):
         gateway = get_gateways()
         ip_lists = get_ip_lists(gateway)
 
-        loop = asyncio.new_event_loop()
-        message = '{"type": "reg", "name": {self.name}}'
+        loop = asyncio.get_event_loop()
+        message = '{"type": "reg", "data": {"name": {0}}}'.format(self.name)
+        for k, v in self.reged_hosts:
+            if (datetime.datetime.now() - v[1]).seconds > 60:
+                self.reged_hosts.pop(k, None)
+
         for ip in ip_lists:
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)
@@ -80,6 +85,15 @@ class HostManager():
         loop.run_until_complete()
         asyncio.sleep(15)
         self.heartbeat()
+
+    def send_msg(self, data):
+        loop = asyncio.get_event_loop()
+        message = '{"type": "text", "data": {"msg": {0}}}'.format(data)
+        for ip in self.reged_hosts:
+            coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
+                                      ip, port)
+            loop.create_task(coro)
+        loop.run_until_complete()
 
     def listen(self):
         loop = asyncio.get_event_loop()

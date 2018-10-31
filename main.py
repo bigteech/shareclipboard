@@ -26,8 +26,12 @@ def get_button(data):
     btn.clicked.connect(lambda x: pyperclip.copy(data))
     return btn
 
-def on_reg(data):
+def on_reg(data, proto):
+    manager.reg(data['name'])
     return 'success'
+
+def on_text(data, proto):
+    init_btn_history(data['msg'])
 
 def init_btn_history(data, x=0):
     global label_height
@@ -38,10 +42,6 @@ def init_btn_history(data, x=0):
     label_height += btn.height()
     return f'success'
 
-def on_text(data):
-    init_btn_history(data)
-
-
 def listen():
     manager.reg_msg_handler('reg', on_reg)
     manager.reg_msg_handler('text', on_text)
@@ -51,6 +51,7 @@ def send_msg():
     data = get_text_from_editor()
     ui.textEdit.clear()
     init_btn_history(data, 380)
+    manager.send_msg(data)
 
 ui.submit.clicked.connect(send_msg)
 listen()
