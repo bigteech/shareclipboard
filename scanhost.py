@@ -88,7 +88,6 @@ class HostManager():
             coro = loop.create_connection(lambda: asyncio.DatagramProtocol(message, loop),
                                       ip, port)
             loop.create_task(coro)
-            print(f'reg   {ip}:{port}')
         fun_to_flush()
         await asyncio.sleep(15)
         await self.heartbeat(fun_to_flush)

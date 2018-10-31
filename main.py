@@ -43,6 +43,8 @@ def on_reg(data, proto):
 
 def on_text(data, proto):
     init_btn_history(data)
+    return 'success'
+
 
 def init_btn_history(data):
     global label_height
@@ -51,8 +53,6 @@ def init_btn_history(data):
     btn.move(0, label_height)
     btn.show()
     label_height += btn.height()
-    return f'success'
-
 
 def listen():
     manager.reg_msg_handler('reg', on_reg)
