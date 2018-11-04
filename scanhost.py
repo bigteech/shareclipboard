@@ -6,7 +6,7 @@ port = 10958
 
 
 def get_proto(manager):
-
+    last=""
 
     class EchoServerClientProtocol(asyncio.DatagramProtocol):
 
@@ -14,7 +14,10 @@ def get_proto(manager):
             self.transport = transport
 
         def datagram_received(self, data, addr):
-            print(data)
+            nonlocal last
+            if last == data:
+                return
+            last = data
             try:
                 msg = json.loads(data.decode())
             except:
@@ -34,6 +37,8 @@ class HostManager():
     name= ''
     host_change_handler = lambda x: 0
     handler_mapping = {}
+    bordercast = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    bordercast.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
     def __init__(self):
         self.echoServerClientProtocol = get_proto(self)
@@ -65,9 +70,7 @@ class HostManager():
         self.send_data('{"type": "text", "data": "%s"}' % data)
 
     def send_data(self, data):
-        bordercast = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bordercast.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        bordercast.sendto(data.encode('utf-8'), ('<broadcast>', port))
+        self.bordercast.sendto(data.encode('utf-8'), ('<broadcast>', port))
 
     def listen(self):
         loop = asyncio.get_event_loop()

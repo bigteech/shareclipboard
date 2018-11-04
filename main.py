@@ -63,7 +63,6 @@ def listen():
 def send_msg():
     data = get_text_from_editor()
     ui.textEdit.clear()
-    init_btn_history(data)
     manager.send_msg(data)
 
 
