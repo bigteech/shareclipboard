@@ -1,6 +1,7 @@
 import sys
 import mainwindow
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
+from PyQt5.QtCore import Qt
 from quamash import QEventLoop
 from scanhost import manager
 import asyncio
@@ -29,10 +30,16 @@ def flush_user():
 def get_text_from_editor():
     return ui.textEdit.toPlainText()
 
-def get_button(data):
+def get_label(data):
+    label = QLabel(ui.history)
+    label.setText(data)
+    label.setTextInteractionFlags(Qt.TextSelectableByMouse)
+    label.setMaximumWidth(300)
+    return label
+
+def get_btn(data):
     btn = QPushButton(ui.history)
-    btn.setText(data)
-    btn.setMaximumWidth(300)
+    btn.setText('copy')
     btn.clicked.connect(lambda x: pyperclip.copy(data))
     return btn
 
@@ -42,17 +49,21 @@ def on_reg(data, addr):
     return 'success'
 
 def on_text(data, addr):
-    init_btn_history(data)
+    init_history(data)
     return 'success'
 
 
-def init_btn_history(data):
+def init_history(data):
     global label_height
-    btn = get_button(data)
-    btn.setText(data)
+    label = get_label(data)
+    label.move(80, label_height + 6)
+    label.show()
+
+    btn = get_btn(data)
     btn.move(0, label_height)
     btn.show()
-    label_height += btn.height()
+
+    label_height += (label.height() + 10)
 
 def listen():
     manager.reg_msg_handler('reg', on_reg)
