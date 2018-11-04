@@ -68,6 +68,7 @@ def send_msg():
 
 
 ui.submit.clicked.connect(send_msg)
+manager.set_name('一大碗豆浆')
 listen()
 loop.create_task(manager.heartbeat(flush_user))
 sys.exit(loop.run_forever())
