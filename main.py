@@ -66,8 +66,13 @@ def send_msg():
     manager.send_msg(data)
 
 
+def set_name():
+    name = ui.nameInput.toPlainText()
+    manager.set_name(name or 'anonymous')
+
+
+ui.nameInput.textChanged.connect(set_name)
 ui.submit.clicked.connect(send_msg)
-manager.set_name('一大碗豆浆')
 listen()
 loop.create_task(manager.heartbeat(flush_user))
 sys.exit(loop.run_forever())
