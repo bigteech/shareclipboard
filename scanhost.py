@@ -59,7 +59,7 @@ class HostManager():
         return self.reged_hosts
 
     def reg(self, name, host):
-        self.reged_hosts['host'] = (name, datetime.datetime.now(),)
+        self.reged_hosts[host] = (name, datetime.datetime.now(),)
 
     async def heartbeat(self, fun_to_flush):
         self.send_data('{"type": "reg", "data": "%s"}' % self.name)
